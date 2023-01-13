@@ -1,4 +1,7 @@
-﻿using SortingAlgorithmsComparison;
+﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Jobs;
+using BenchmarkDotNet.Running;
+using SortingAlgorithmsComparison;
 
 internal class Program
 {
@@ -21,6 +24,8 @@ internal class Program
 
         SortingAlgorithms.BucketSort(hundredIntegers);
         SortingAlgorithms.BucketSort(tenThousandIntegers);
+
+        var results0 = BenchmarkRunner.Run(SortingAlgorithms.SelectionSort(hundredIntegers));
     }
 
     private static void PrintArray(int[] integers)
@@ -32,4 +37,23 @@ internal class Program
 
         Console.WriteLine();
     }
+}
+
+[MemoryDiagnoser]
+[SimpleJob(RuntimeMoniker.Net50)]
+public class Demo
+{
+    [Benchmark]
+    public string GetFullStringNormally()
+    {
+        string output = "";
+
+        for (int i = 0; i < 1000; i++)
+        {
+            output += i;
+        }
+
+        return output;
+        
+    }  
 }

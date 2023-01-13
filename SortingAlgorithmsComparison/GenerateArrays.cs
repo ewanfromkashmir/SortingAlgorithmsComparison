@@ -8,7 +8,7 @@ namespace SortingAlgorithmsComparison
 {
     internal class GenerateArrays
     {
-        public static int maximumValue = 10;
+        public static int maximumValue = 10000;
 
         public static int[] GenerateArray(int length)
         {

@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 
 namespace SortingAlgorithmsComparison
 {
+    [MemoryDiagnoser]
     internal class SortingAlgorithms
     {
+        [Benchmark]
         public static int[] SelectionSort(int[] integers)
         {
             for (int i = 0; i < integers.Length; i++)
@@ -30,6 +34,7 @@ namespace SortingAlgorithmsComparison
             return integers;
         }
 
+        [Benchmark]
         public static int[] BubbleSort(int[] integers) 
         {
             int temporaryInteger; ;
@@ -50,12 +55,14 @@ namespace SortingAlgorithmsComparison
             return integers;
         }
 
+        [Benchmark]
         public static int[] QuickSort(int[] integers)
         {
             Array.Sort(integers);
             return integers;
         }
 
+        [Benchmark]
         public static int[] InsertionSort(int[] integers) 
         {
             for (int i = 0; i < integers.Length - 1; i++) 
@@ -74,6 +81,7 @@ namespace SortingAlgorithmsComparison
             return integers;
         }
 
+        [Benchmark]
         public static int[] BucketSort(int[] integers) 
         {
             int minimumValue = integers[0];
