@@ -16,6 +16,8 @@ internal class Program
         SortingAlgorithms.BubbleSort(hundredIntegers);
         SortingAlgorithms.BubbleSort(tenThousandIntegers);
 
+        //Test comment to see if GitHub problem has been properly fixed
+
         SortingAlgorithms.QuickSort(hundredIntegers);
         SortingAlgorithms.QuickSort(tenThousandIntegers);
 
